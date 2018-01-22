@@ -77,7 +77,7 @@ public class MacroBaseSQLRepl {
                     final ImportCsv importStatement = (ImportCsv) stmt;
                     queryEngine.importTableFromCsv(importStatement).prettyPrint();
                 } else {
-                    QueryBody q = ((Query) stmt).getQueryBody();
+                    final QueryBody q = ((Query) stmt).getQueryBody();
                     final DataFrame result = queryEngine.executeQuery(q);
                     result.prettyPrint();
                     q.getExportExpr().ifPresent((exportExpr) -> {
